@@ -1,3 +1,7 @@
+/*
+* represents a professor for UNF WC scheduling software
+* and contains setters and getters that allow a Professor's data to be retrieved and manipulated
+*/
 public class Professor 
 {
 	
@@ -9,27 +13,27 @@ public class Professor
 	private String coursePrefThree;
 	private String coursePrefFour;
 	private String coursePrefFive; // course that Prof fifth most wants to be matched to
-	private String specialtyOne; // course type (prefix only regardless of level) that Prof is best suited to teach
+	private String specialtyOne; // course type (prefix only regardless of level) that Prof is best suited to teach (and is used as a secondary matching attribute if they cannot be matched to a specific course in above course preferences)
 	private String specialtyTwo;
 	private String specialtyThree;
-	private String dayAndTimePrefOne;   // days that Prof wants to teach on
+	private String dayAndTimePrefOne;   // days and times that Prof wants to teach on
 	private String dayAndTimePrefTwo;
 	private String dayAndTimePrefThree;
-	private String dayAndTimePrefFour;
+	private String dayAndTimePrefFour; //one, two, three, four, etc. correspond to specific sets of days, such as Monday/Wednesday, Tuesday/Thursday, Monday/Wednesday/Friday, etc. and are not ranked in any specific order
 	private String dayAndTimePrefFive;  
 	private String dayAndTimePrefSix;
 	private String dayAndTimePrefSeven;
 	private String dayAndTimePrefEight;
-	private int timePrefOne;  // time at which Prof wants to teach 
+	private int timePrefOne;  // time at which Prof wants to teach (separate variable from dayAndTimePref to allow for int manipulation)  
 	private int timePrefTwo;
 	private int timePrefThree;
-	private int timePrefFour;
+	private int timePrefFour; // time prefs also correspond to same specific sets of days and are not ranked in any order
 	private int timePrefFive;
 	private int timePrefSix;
 	private int timePrefSeven;
 	private int timePrefEight;
 	private int timePrefNine;
-	private int timePrefTen;  // time at which Prof wants to teach
+	private int timePrefTen; 
 	private String firstPref;  // preference that matters most to Prof (i.e. course, day, time, number of preps, or online/on campus)
 	private String secondPref;
 	private String thirdPref;
@@ -39,7 +43,7 @@ public class Professor
 	private String courseMatchTwo;
 	private String courseMatchThree;
 	private String courseMatchFour;  
-	private String courseMatchFive;  //fourth course that Prof is matched to
+	private String courseMatchFive;  //fifth course that Prof is matched to
 	private double percentPrefMet;    // percentage of Prof's preferences that are met
 	
 
@@ -510,14 +514,21 @@ public class Professor
 		percentPrefMet = updatePercentPrefMet;
 	}
 	
+	/*
+	 * method primarily used in Professor class' subclasses to distinguish between TTF and NTTF when they are grouped together as Professor objects
+	 */
 	public boolean isTenureTrack()
 	{
 		return false;
 	}
 	
+	/*
+	 * displays all values of Professor's attributes
+	 * 
+	 */
 	public String toString()
 	{
-		System.out.println("Name: " + name + "\nCourse Load: " + courseLoad + "\nNumber of Preps: " + numPreps + "\nCourse Preference One: " + coursePrefOne + 
+		return ("Name: " + name + "\nCourse Load: " + courseLoad + "\nNumber of Preps: " + numPreps + "\nCourse Preference One: " + coursePrefOne + 
 				"\nCourse Preference Two: " + coursePrefTwo + "\nCourse Preference Three: " + coursePrefThree + "\nCourse Preference Four: " + coursePrefFour + 
 				"\nCourse Preference Five: " + coursePrefFive + "\nSpecialty One: " + specialtyOne + "\nSpecialty Two: " + specialtyTwo + "\nSpecialtyThree: " +specialtyThree +
 				"\nDay Preference One: " + dayAndTimePrefOne + "\nDay Preference Two: " + dayAndTimePrefTwo + "\nDay Preference Three: " + dayAndTimePrefThree + "\nDay Preference Four: " + dayAndTimePrefFour +
@@ -526,13 +537,11 @@ public class Professor
 				"\nTime Preference Six: " + timePrefSix + "\nTime Preference Seven: " + timePrefSeven + "\nTime Preference Eight: " + timePrefEight + 
 				"\nTime Preference Nine: " + timePrefNine + "\nTime Preference Ten: " + timePrefTen + "\nFirst Preference: " + firstPref + "\nSecond Preference: " + secondPref +
 				"\nThird Preference: " + thirdPref + "\nFourthPreference: " + fourthPref + "\nFifthPreference: " + fifthPref + "\nCourse Match One: " + courseMatchOne + "\nCourse Match Two: " + courseMatchTwo + "\nCourse Match Three: " + courseMatchThree +
-				"\nCourse Match Four: " + courseMatchFour + "\nCourse Match Five: " + courseMatchFive + "\nPercent of Preferences Met: " + percentPrefMet);
-		return "";
+				"\nCourse Match Four: " + courseMatchFour + "\nCourse Match Five: " + courseMatchFive + "\nPercent of Preferences Met: " + percentPrefMet + "\n");
 		
-	}
+	}// end toString()
 
-
-}
+}// end Professor class
 
 
 

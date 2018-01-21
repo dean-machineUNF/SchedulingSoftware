@@ -2,6 +2,9 @@ import java.io.IOException;
 
 import jxl.read.biff.BiffException;
 
+/*
+ * main class for UNF WC Scheduling Software 
+ */
 public class Main 
 {
 	DoublyLinkedList profDoublyLinkedList;
@@ -131,9 +134,24 @@ public class Main
 		
 		profDoublyLinkedList.displayBackward();
 		
-		//write Node and DoublyLinkedList classes
+		//(add check invariants method?)
 		
-		//need to add Javadoc for all methods
+		testInput.readCourseData();
+		
+		//add Javadoc for all methods
+		
+		//get course data from David
+		
+		//write constructor for Course DLL
+		
+		//build Course DLL
+		
+		//create Match class and write Match methods
+		
+		//pass Prof DLL and Course DLL into Match object 
+		
+		
+		
 	}
 
 }
